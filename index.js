@@ -3,15 +3,18 @@ const cors = require('cors');
 const ytdl = require('ytdl-core');
 const favicon = require('serve-favicon');
 const path = require('path');
+const serverless = require('serverless-http');
 
 const app = express();
-const port = process.env.PORT || "8000";
+const port = process.env.PORT || "3000";
 
 // SERVER CODE STARTS HERE
 
 app.use(cors());
 app.use(favicon(`${__dirname}/public/favicon.ico`));
 app.use(express.static('public'));
+app.use(express.urlencoded({ extended: true}));
+app.use(express.json());
 
 // code for homepage html
 app.get('/', (req, res) => res.sendFile(path.join(`${__dirname}/site/index.html`)));
@@ -82,39 +85,20 @@ app.get('/getinfo', (req, res) => {
     });
 })
 
-app.listen(port, () => {
-    console.log("Server started.");
+// SERVERLESS
+app.get('/api/info', (req, res) => {
+    res.send({ application: 'youtube-downloader', version: '1.0'});
 });
 
-/* create the server
-http.createServer(function (req, res) {
-    
-    var q = url.parse(req.url, true);
+app.post('/api/v1/getback', (req, res) => {
+    res.send({ ...req.body });
+  });
 
-    console.log("[DEBUG]: Pathname: " + q.pathname);
 
-    if (q.pathname == "/") {
-        
-        fs.readFile("./site/index.html", function (err, data) {
-            res.writeHead(200, {'Content-Type': 'text/html'});
-            res.write(data);
-            return res.end();
-        });
-    }
+// LISTEN
 
-    else if (q.pathname == "/style.css") {
-        fs.readFile("./site/style.css", function (err, data) {
-            res.write(data);
-            return res.end();
-        });
-    }
+app.listen(port, () => {
+    console.log("Server started on port " + port + ".");
+});
 
-    else if (q.pathname == "/icon.png") {
-        fs.readFile("./graphics/youtube-icon.png", function (err, data) {
-            res.write(data);
-            return res.end();
-        });
-    }
-    
-}).listen(8080);
-*/
+module.exports.handler = serverless(app);
