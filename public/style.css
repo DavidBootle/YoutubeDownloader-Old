@@ -1,0 +1,58 @@
+* {
+    text-align: center;
+}
+.heading {
+    font-family: sans-serif;
+    text-align: center;
+    font-size: 50px;
+}
+
+.url-input, .search-button {
+    font-size: 1.3em;
+    padding: 5px 10px;
+}
+
+.url-input {
+    border-radius:4px 0px 0px 4px;
+    width: 30em;
+    text-align: left;
+    border:2px solid #EEEEEE;
+    background: #EEEEEE;
+    outline:none;
+}
+.url-input:focus {
+    border:2px solid #0485ff;
+}
+.search-button {
+    border-radius:0px 4px 4px 0px;
+    border:2px solid #0485ff;
+    background: #0485ff;
+    color:white;
+}
+.video-container {
+    display: none;
+    width: 50%;
+    margin: 0 auto;
+    margin-top: 30px;
+    text-align: center;
+}
+.video-title {
+    font-size: 20px;
+    text-align: left;
+    font-family: sans-serif;
+}
+.video-thumbnail {
+    width: 100%;
+}
+.download-button {
+    font-size: 1.3em;
+    padding: 5px 10px;
+    border:2px solid #0485ff;
+    background: #0485ff;
+    color:white;
+    border-radius: 4px;
+}
+.quality {
+    font-size: 1em;
+    font-family: sans-serif;
+}
