@@ -1,5 +1,15 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
+    h1.heading= title
+    input.url-input(type="url", placeholder='Video URL e.g. https://www.youtube.com/watch?v=dQw4w9WgXcQ')
+    button.search-button Search
+
+    .video-container
+        hr
+        h1.video-title(contenteditable="true", spellcheck="false")
+        img.video-thumbnail(src="", alt="")
+        p.quality
+        button.download-button Download
+    
+    script(src='/javascripts/script.js')
