@@ -24,7 +24,7 @@ app.get('/find', (req, res) => {
   var URL = req.query.URL;
 
   if (URL === undefined) {
-    res.send("Hello");
+    res.render('info', {title: 'Find Info Proxy'});
   } else {
 
     ytdl.getBasicInfo(URL, function (err, info) {
@@ -72,6 +72,19 @@ app.get('/find', (req, res) => {
 
     });
   }
+});
+
+app.get('/download', (req, res) => {
+  var URL = req.query.URL;
+
+  if (URL === undefined) {
+    res.render('info', {title: 'Download Proxy'});
+  }
+  var title = req.query.title;
+  
+  res.header('Content-Disposition', `attachment;filename="${title}.mp4"`);
+
+  ytdl(URL, {format: 'mp4'}).pipe(res);
 });
 
 // catch 404 and forward to error handler
