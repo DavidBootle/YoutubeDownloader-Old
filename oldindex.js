@@ -4,6 +4,7 @@ const ytdl = require('ytdl-core');
 const favicon = require('serve-favicon');
 const path = require('path');
 const serverless = require('serverless-http');
+const favicon = require('serve-favicon');
 
 const app = express();
 const port = process.env.PORT || "3000";
@@ -15,6 +16,7 @@ app.use(favicon(`${__dirname}/public/favicon.ico`));
 app.use(express.static('public'));
 app.use(express.urlencoded({ extended: true}));
 app.use(express.json());
+app.use(favicon(__dirname + '/public/images/favicon.ico'));
 
 // code for homepage html
 app.get('/', (req, res) => res.sendFile(path.join(`${__dirname}/site/index.html`)));

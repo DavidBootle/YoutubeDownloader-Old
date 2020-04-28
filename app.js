@@ -4,6 +4,7 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var ytdl = require('ytdl-core');
+var favicon = require('serve-favicon');
 
 var app = express();
 
@@ -17,6 +18,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use('/public', express.static(path.join(__dirname, 'public')));
+app.use(favicon(__dirname + '/public/images/favicon.ico'));
 
 app.use('/', indexRouter);
 
