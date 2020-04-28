@@ -81,7 +81,7 @@ app.get('/getinfo', (req, res) => {
     });
 })
 
-app.listen(80, () => {
+app.listen(5000, () => {
     console.log("Server started.");
 });
 
