@@ -7,10 +7,12 @@ var videoThumbnail = document.querySelector('.video-thumbnail');
 var quality = document.querySelector('.quality');
 
 URLinput.addEventListener('input', () => {
+    // find the video using the input value
     findVideo(URLinput.value);
 });
 
 searchBtn.addEventListener('click', () => {
+    // find the video using the input value
     findVideo(URLinput.value);
 })
 

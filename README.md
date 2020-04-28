@@ -1,2 +1,1 @@
-# YoutubeDownloader
-A site to download youtube videos, free of annoying ads.
+This is a starter template for [Learn Next.js](https://nextjs.org/learn).
