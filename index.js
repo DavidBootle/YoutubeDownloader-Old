@@ -5,6 +5,7 @@ const favicon = require('serve-favicon');
 const path = require('path');
 
 const app = express();
+const port = process.env.PORT || "8000";
 
 // SERVER CODE STARTS HERE
 
@@ -81,7 +82,7 @@ app.get('/getinfo', (req, res) => {
     });
 })
 
-app.listen(5000, () => {
+app.listen(port, () => {
     console.log("Server started.");
 });
 
