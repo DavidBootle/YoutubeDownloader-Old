@@ -81,7 +81,7 @@ app.get('/getinfo', (req, res) => {
     });
 })
 
-app.listen(8081, () => {
+app.listen(80, () => {
     console.log("Server started.");
 });
 
